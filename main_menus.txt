@@ -3,8 +3,6 @@ Gulai Ayam
 Ayam Gulai
 Soto Ayam
 Dori Goreng Mentega
-Menu Catering Mei
-Menu Catering Januari
 Ayam Kalasan
 Dori Asam Manis
 Sop Kembang Tahu
@@ -13,7 +11,6 @@ Ayam Asam Manis
 Sop Baso Sapi Sayuran
 Chicken Teriyaki
 Kari Ayam
-Libur Imlek
 Sop Ayam Kembang Tahu Wortel Baso Ikan
 Ayam Pop
 Chicken Karage
@@ -32,11 +29,9 @@ Gulai Telur
 Chicken Yakiniku
 Soto Sapi Sulung
 Dori Honey Lemon
-Menu Catering Februari
 Sop Ayam Kembang Tahu Wortel
 Sop Jagung Ayam
 Soto Sulung Daging
-Menu Catering Oktober
 Dori Steak Saos Tiram
 Nasi Liwet
 Martabak Telur
@@ -59,6 +54,5 @@ Crabstick Telur
 Omelet Daging Sayur
 Gyoza Ayam
 Egg Roll
-Menu Catering November
 Gulai Telor Tahu
 Telor Dadar Sosis

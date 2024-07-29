@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.YearMonth;
 import java.time.temporal.ChronoField;
 import java.time.temporal.WeekFields;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class Main {
                     break;
                 case "extract":
                     if (!randomMenu.isEmpty()) {
-                        String csvOutputPath = "august_2024_menu.csv";
+                        String csvOutputPath = "C:\\Users\\gunaw\\OneDrive\\Documents\\CATERING\\august_2024_menu.csv";
                         outputMenuToCSV(randomMenu, csvOutputPath);
                         System.out.println("Menu has been extracted to CSV.");
                     } else {
@@ -70,38 +71,37 @@ public class Main {
 
     static List<String> prepareRandomMenu(List<String> mainDishes, List<String> extraDishes, int month, int year) {
         List<String> menu = new ArrayList<>();
-        LocalDate date = LocalDate.of(year, month, 1);
-        int daysInMonth = date.lengthOfMonth();
+        YearMonth yearMonth = YearMonth.of(year, month);
+        LocalDate date = yearMonth.atDay(1);
+        int daysInMonth = yearMonth.lengthOfMonth();
 
         Collections.shuffle(mainDishes);
         Collections.shuffle(extraDishes);
 
         int mainIndex = 0, extraIndex = 0;
-        int currentWeek = 0;
-        for (int day = 1; day <= daysInMonth; day++) {
-            date = LocalDate.of(year, month, day);
-            if (date.get(ChronoField.DAY_OF_WEEK) != 6 && date.get(ChronoField.DAY_OF_WEEK) != 7) {
-                int weekOfYear = date.get(WeekFields.of(Locale.getDefault()).weekOfYear());
-                if (weekOfYear != currentWeek) {
-                    if (!menu.isEmpty()) {
-                        menu.add(""); // add a blank line to separate weeks
-                    }
-                    currentWeek = weekOfYear;
-                }
-                String menuForDay = date.toString() + "," + mainDishes.get(mainIndex) + " + " + extraDishes.get(extraIndex);
+        while (date.getMonthValue() == month) {
+            if (date.getDayOfWeek().getValue() < 6) {  // Monday to Friday
+                String menuForDay = date.getDayOfMonth() + "," + mainDishes.get(mainIndex) + " + " + extraDishes.get(extraIndex);
                 menu.add(menuForDay);
                 mainIndex = (mainIndex + 1) % mainDishes.size();
                 extraIndex = (extraIndex + 1) % extraDishes.size();
             }
+            date = date.plusDays(1);
         }
         return menu;
     }
 
     static void outputMenuToCSV(List<String> menu, String outputPath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath))) {
+            writer.write("Monday,Tuesday,Wednesday,Thursday,Friday\n"); // Header
+            int dayCount = 0;
             for (String line : menu) {
-                writer.write(line);
-                writer.newLine();
+                writer.write(line.split(",")[1]);  // Write the menu only
+                if (++dayCount % 5 == 0) {
+                    writer.newLine();  // New line every 5 days (week)
+                } else {
+                    writer.write(",");  // Comma separates days of the week
+                }
             }
         } catch (IOException e) {
             System.out.println("Error writing to the file:");
