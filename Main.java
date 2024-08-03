@@ -5,12 +5,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.YearMonth;
-import java.time.temporal.ChronoField;
-import java.time.temporal.WeekFields;
+// import java.time.temporal.ChronoField;
+// import java.time.temporal.WeekFields;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
+// import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -26,7 +26,7 @@ public class Main {
             switch (userInput) {
                 case "randomize":
                     String mainDishesPath = "C:\\Users\\gunaw\\OneDrive\\Documents\\GitHub\\Menu_Randomizer\\main_menus.txt";
-                    String extraDishesPath = "C:\\Users\\gunaw\\OneDrive\\Documents\\GitHub\\Menu_Randomizer\\extra_menu.txt";
+                    String extraDishesPath = "C:\\Users\\gunaw\\OneDrive\\Documents\\GitHub\\Menu_Randomizer\\extra_menus.txt";
 
                     List<String> mainDishes = readDishesFromFile(mainDishesPath);
                     List<String> extraDishes = readDishesFromFile(extraDishesPath);
@@ -73,7 +73,7 @@ public class Main {
         List<String> menu = new ArrayList<>();
         YearMonth yearMonth = YearMonth.of(year, month);
         LocalDate date = yearMonth.atDay(1);
-        int daysInMonth = yearMonth.lengthOfMonth();
+        // int daysInMonth = yearMonth.lengthOfMonth();
 
         Collections.shuffle(mainDishes);
         Collections.shuffle(extraDishes);
