@@ -1,6 +1,5 @@
 Sayur Labu
 Tempe Goreng Tepung
-Gulai Ayam
 Tumis Labu Siam Telur
 Kentang Goreng
 Martabak Telor
@@ -30,7 +29,6 @@ Tumis Jagung Buncis
 Tumis Toge Kacang Panjang
 Sosis Goreng Kulit Lumpia
 Telur Dadar
-Sop Sayuran
 Bayam Jagung
 Tempe Goreng
 Perkedel
